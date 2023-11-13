@@ -4,7 +4,7 @@ services: #
     restart: always
     ports:
       - 8080:8080
-    enviroment:
+    environment:
       - POSTGRES_DB=postgres
     networks:
       - spring-postgres
@@ -15,7 +15,7 @@ services: #
       - db-data:/var/lib/postgresql/data # C:var
     networks:
       - spring-postgres
-    enviroment: 
+    environment: 
       - POSTGRES_PASSWORD=2207
       #     POSTGRES_PASSWORD: "2207"
     expose:
