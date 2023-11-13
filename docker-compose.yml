@@ -1,0 +1,27 @@
+services: #
+  backend:
+    image: ecommerce:latest
+    restart: always
+    ports:
+      - 8080:8080
+    enviroment:
+      - POSTGRES_DB=postgres
+    networks:
+      - spring-postgres
+  db:
+    image: postgres
+    restart: always
+    volumes: 
+      - db-data:/var/lib/postgresql/data # C:var
+    networks:
+      - spring-postgres
+    enviroment: 
+      - POSTGRES_PASSWORD=2207
+      #     POSTGRES_PASSWORD: "2207"
+    expose:
+      - 5431
+
+volumes: 
+  db-data:
+networks: 
+  spring-postgres:
